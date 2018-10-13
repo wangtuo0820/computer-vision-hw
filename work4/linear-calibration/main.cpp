@@ -191,11 +191,7 @@ int main()
     Mat m34 =(Mat_<double>(1, 1) << m_34*1);
     vconcat(m, m34, m);
     m /= norm(m);
-    M = m.reshape(1, 3); // reshape(channel, row)
-    cout << "----------M----------" << endl;
-    cout << M.type() << endl;
-    cout << CV_64FC1 << endl;
-
+    M = m.reshape(1, 3); // reshape(channel, row);
 
     Mat A = M.colRange(0,3);
     Mat a1 = A.rowRange(0,1);
@@ -228,12 +224,6 @@ int main()
     vector<Mat> RT_data = {R,t};
 
     hconcat(RT_data, RT);
-    cout << RT.size << endl;
-
-    cout << "rho*M:" << endl;
-    cout << rho*M << endl;
-    cout << "K*RT" << endl;
-    cout << K*RT << endl;
 
     for(int i = 0; i < 80; i++)
     {
